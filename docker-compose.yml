@@ -37,6 +37,15 @@ services:
     ports:
       - "27017:27017"
 
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    env_file: .env
+    networks:
+      - strapi-app-network
+    ports:
+      - "80:3000"      
+
 networks:
   strapi-app-network:
     driver: bridge
